@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+.addform{
+  border: 1px solid red;
+}
+.custom-input{
+  border: 1px solid red;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+  <h2>Add Your Task</h2>
+  <form class="addform" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="{{ data.title.id_for_label }}">Title:</label>
+      {{ data.title }}
+    </div>
+    <div class="form-group">
+      <label for="{{ data.description.id_for_label }}">Description:</label>
+      {{ data.description }}
+    </div>
+    <button type="submit">Add Task</button>
+  </form>
+{% endblock %}
